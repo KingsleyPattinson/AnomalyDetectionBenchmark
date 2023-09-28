@@ -1,14 +1,14 @@
 <a name="t3FFN"></a>
 ## Benchmarking Multivariate Time Series Anomaly Detection with Large-Scale Real-World Datasets
-In this paper, we advance the benchmarking of time series anomaly detection from datasets, evaluation metrics, and algorithm comparison. <br />To the best of our knowledge, we have generated the largest real-world dataset for multivariate time series anomaly detection (MTSAD) from the Hologres AIOps system in the Alibaba Cloud platform. <br />We review and compare popular evaluation metrics including recently proposed.<br />To evaluate classic machine learning and recent deep learning methods fairly, we have performed extensive comparisons of these methods on various datasets. <br />We believe our benchmarking and datasets can promote reproducible results and accelerate the progress of MTSAD research.
+In this paper, we advance the benchmarking of time series anomaly detection from datasets, evaluation metrics, and algorithm comparison. <br />To the best of our knowledge, we have generated the largest real-world dataset for multivariate time series anomaly detection (MTSAD) from the xx AIOps system. <br />We review and compare popular evaluation metrics including recently proposed.<br />To evaluate classic machine learning and recent deep learning methods fairly, we have performed extensive comparisons of these methods on various datasets. <br />We believe our benchmarking and datasets can promote reproducible results and accelerate the progress of MTSAD research.
 
 <a name="JwX86"></a>
 ## 1、Datasets
 <a name="T1rHA"></a>
-### 1.1 Real-world Hologres AIOps Dataset
-The Hologres Datasets are on [https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563](https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563) <br />For each instance, a CSV file is given. The train dataset and test dataset in each instance should be split evenly through all the timestamps.
+### 1.1 Real-world xx AIOps Dataset
+The xx Datasets are on [https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563](https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563) <br />For each instance, a CSV file is given. The train dataset and test dataset in each instance should be split evenly through all the timestamps.
 
-- Illustration of the collection of Hologres AIOps dataset
+- Illustration of the collection of xx AIOps dataset
 
 ![](img/system_structure.png)
 All the metrics and labels in our dataset are derived from real-world scenarios. All metrics were obtained from the Hologres instance monitoring system and cover a rich variety of metric types, including **CPU usage, queries per second (QPS) and latency**, which are related to many important modules within Hologres. We obtain labels from the ticket system, which integrates three main sources of instance anomalies: user service requests, instance unavailability and fault simulations. User service requests refer to tickets that are submitted directly by users, whereas instance unavailability is typically detected through existing monitoring tools or discovered by Site Reliability Engineers (SREs). Since the system is usually very stable, we augment the anomaly samples by conducting fault simulations. Fault simulation refers to a special type of anomaly, planned beforehand, which is introduced to the system to test its performance under extreme conditions. All records in the ticket system are subject to follow-up processing by engineers, who meticulously mark the start and end times of each ticket. This rigorous approach ensures the accuracy of the labels in our dataset. 
@@ -66,7 +66,7 @@ All the metrics and labels in our dataset are derived from real-world scenarios.
 | instance46 | 167952 | 25 | 2 | 0.001% |
 | instance47 | 167958 | 30 | 26 | 0.015% |
 
-Due to Alibaba Internal Data Exposure Policy, we delete all data's timestamps and column names.<br />The last column of every instance file is the anomaly label, other columns are different system metrics.
+Due to xx Data Exposure Policy, we delete all data's timestamps and column names.<br />The last column of every instance file is the anomaly label, other columns are different system metrics.
 <a name="aCTNS"></a>
 ### 1.2 Public Datasets
 You can download the Public Datasets through the following URL: [https://drive.google.com/file/d/1MqJ-Qf20wm8MaweyyzGc3SB3JujTIiEd/view?usp=sharing](https://drive.google.com/file/d/1MqJ-Qf20wm8MaweyyzGc3SB3JujTIiEd/view?usp=sharing)
@@ -84,7 +84,7 @@ The Evaluation Metrics we considered are:
 
 For more details, see the metrics files in：
 ```Bash
-sreworks-ext/aiops/AnomalyDetectionBenchmark/main/evaluation
+AnomalyDetectionBenchmark/main/evaluation
 ```
 
 <a name="Om1HR"></a>
@@ -114,7 +114,7 @@ The methods included are shown below:
 
 For the methods we used, there are model file folders in the:
 ```Bash
-sreworks-ext/aiops/AnomalyDetectionBenchmark/models
+AnomalyDetectionBenchmark/models
 ```
 All the details are shown inside.
 <a name="tVl84"></a>
@@ -126,20 +126,20 @@ Following steps will show the process to run the experiments.
 - Datasets Downloading
    - Download our datasets from  [https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563/](https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563/) , unzip the file and put it in:
 ```Bash
-sreworks-ext/aiops/AnomalyDetectionBenchmark/datasets/holo
+AnomalyDetectionBenchmark/datasets/holo
 ```
 
    - Download public datasets from [https://drive.google.com/file/d/1MqJ-Qf20wm8MaweyyzGc3SB3JujTIiEd/view?usp=sharing](https://drive.google.com/file/d/1MqJ-Qf20wm8MaweyyzGc3SB3JujTIiEd/view?usp=sharing)
 and put them in:
 ```Bash
-sreworks-ext/aiops/AnomalyDetectionBenchmark/datasets/public
+AnomalyDetectionBenchmark/datasets/public
 ```
 
 - Data Preprocessing
 
 We prepare three filling methods for data preprocessing: Mean, Linear Interpolation and Zero.<br />The data preprocessor file is in:
 ```Bash
-sreworks-ext/aiops/AnomalyDetectionBenchmark/main/datafill_methods.ipynb
+AnomalyDetectionBenchmark/main/datafill_methods.ipynb
 ```
 You can also use your own filling method to process the data.
 
@@ -147,7 +147,7 @@ You can also use your own filling method to process the data.
 
 To use the models listed above:
 
-In `sreworks-ext/aiops/AnomalyDetectionBenchmark/main/`, run:
+In `AnomalyDetectionBenchmark/main/`, run:
 ```Bash
 python main.py --model <model_name> --dataset <public_dataset> --instance <holo_instance_num>
 ```
@@ -157,7 +157,7 @@ where `<model>` can be either of 'DCDetector', 'AnomalyTransformer', 'KNN', 'LOF
 
 `<instance>` indicates the instance number (0~47) of the sub-dataset in the HOLO dataset.
 
-There are more parameters you can tune, see `sreworks-ext/aiops/AnomalyDetectionBenchmark/main/main.py`
+There are more parameters you can tune, see `AnomalyDetectionBenchmark/main/main.py`
 
 We have already put one of the public datasets and a preprocessed instance of our datasets in the datasets folder. 
 To see part of the results, run the command:
@@ -167,7 +167,7 @@ python main.py --model DAGMM --dataset HOLO --instance 15
 
 - Result Analysis
 
-The following table  shows the experiment results on part of Hologres instances with filling zero for missing data, where the
+The following table  shows the experiment results on part of xx instances with filling zero for missing data, where the
 abbreviations of the evaluation metrics are accuracy, precision, recall, F1-score, affiliation precision,
 affiliation recall, Range_AUC_ROC, Range_AUC_PR, VUS_ROC, VUS_PR, AUC_PR, and AUC_ROC in order.
 
