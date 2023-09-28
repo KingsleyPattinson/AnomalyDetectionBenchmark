@@ -1,19 +1,20 @@
 <a name="t3FFN"></a>
 ## Benchmarking Multivariate Time Series Anomaly Detection with Large-Scale Real-World Datasets
-In this paper, we advance the benchmarking of time series anomaly detection from datasets, evaluation metrics, and algorithm comparison. <br />To the best of our knowledge, we have generated the largest real-world dataset for multivariate time series anomaly detection (MTSAD) from the xx AIOps system. <br />We review and compare popular evaluation metrics including recently proposed.<br />To evaluate classic machine learning and recent deep learning methods fairly, we have performed extensive comparisons of these methods on various datasets. <br />We believe our benchmarking and datasets can promote reproducible results and accelerate the progress of MTSAD research.
+In this paper, we advance the benchmarking of time series anomaly detection from datasets, evaluation metrics, and algorithm comparison. <br />
+To the best of our knowledge, we have generated the largest real-world datasets for MTSAD from the Artificial Intelligence for IT Operations (AIOps) system for a real-time data warehouse in a leading cloud computing company. <br />We review and compare popular evaluation metrics including recently proposed.<br />To evaluate classic machine learning and recent deep learning methods fairly, we have performed extensive comparisons of these methods on various datasets. <br />We believe our benchmarking and datasets can promote reproducible results and accelerate the progress of MTSAD research.
 
 <a name="JwX86"></a>
 ## 1、Datasets
 <a name="T1rHA"></a>
-### 1.1 Real-world xx AIOps Dataset
-The xx Datasets are on [https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563](https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563) <br />For each instance, a CSV file is given. The train dataset and test dataset in each instance should be split evenly through all the timestamps.
+### 1.1 Real-world AIOps Dataset
+The Datasets are on [https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563](https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563) <br />For each instance, a CSV file is given. The train dataset and test dataset in each instance should be split evenly through all the timestamps.
 
-- Illustration of the collection of xx AIOps dataset
+- Illustration of the collection of AIOps dataset
 
 ![](img/system_structure.png)
-All the metrics and labels in our dataset are derived from real-world scenarios. All metrics were obtained from the xx instance monitoring system and cover a rich variety of metric types, including **CPU usage, queries per second (QPS) and latency**, which are related to many important modules within xx. We obtain labels from the ticket system, which integrates three main sources of instance anomalies: user service requests, instance unavailability and fault simulations. User service requests refer to tickets that are submitted directly by users, whereas instance unavailability is typically detected through existing monitoring tools or discovered by Site Reliability Engineers (SREs). Since the system is usually very stable, we augment the anomaly samples by conducting fault simulations. Fault simulation refers to a special type of anomaly, planned beforehand, which is introduced to the system to test its performance under extreme conditions. All records in the ticket system are subject to follow-up processing by engineers, who meticulously mark the start and end times of each ticket. This rigorous approach ensures the accuracy of the labels in our dataset. 
+All the metrics and labels in our dataset are derived from real-world scenarios. All metrics were obtained from the instance monitoring system from a top cloud computing company and cover a rich variety of metric types, including **CPU usage, queries per second (QPS) and latency**, which are related to many important modules within our data warehouse. We obtain labels from the ticket system, which integrates three main sources of instance anomalies: user service requests, instance unavailability and fault simulations. User service requests refer to tickets that are submitted directly by users, whereas instance unavailability is typically detected through existing monitoring tools or discovered by Site Reliability Engineers (SREs). Since the system is usually very stable, we augment the anomaly samples by conducting fault simulations. Fault simulation refers to a special type of anomaly, planned beforehand, which is introduced to the system to test its performance under extreme conditions. All records in the ticket system are subject to follow-up processing by engineers, who meticulously mark the start and end times of each ticket. This rigorous approach ensures the accuracy of the labels in our dataset. 
 
-- Statistic Characteristic of xx AIOps Datasets
+- Statistic Characteristic of Our AIOps Datasets
 
 | Instance | Samples | Dims | Anomaly | Anomaly Rate |
 | --- | --- | --- | --- | --- |
@@ -66,7 +67,7 @@ All the metrics and labels in our dataset are derived from real-world scenarios.
 | instance46 | 167952 | 25 | 2 | 0.001% |
 | instance47 | 167958 | 30 | 26 | 0.015% |
 
-Due to xx Data Exposure Policy, we delete all data's timestamps and column names.<br />The last column of every instance file is the anomaly label, other columns are different system metrics.
+Due to Company Data Exposure Policy, we delete all data's timestamps and column names.<br />The last column of every instance file is the anomaly label, other columns are different system metrics.
 <a name="aCTNS"></a>
 ### 1.2 Public Datasets
 You can download the Public Datasets through the following URL: [https://drive.google.com/file/d/1MqJ-Qf20wm8MaweyyzGc3SB3JujTIiEd/view?usp=sharing](https://drive.google.com/file/d/1MqJ-Qf20wm8MaweyyzGc3SB3JujTIiEd/view?usp=sharing)
@@ -167,7 +168,7 @@ python main.py --model DAGMM --dataset HOLO --instance 15
 
 - Result Analysis
 
-The following table  shows the experiment results on part of xx instances with filling zero for missing data, where the
+The following table shows the experiment results on part of instances with filling zero for missing data, where the
 abbreviations of the evaluation metrics are accuracy, precision, recall, F1-score, affiliation precision,
 affiliation recall, Range_AUC_ROC, Range_AUC_PR, VUS_ROC, VUS_PR, AUC_PR, and AUC_ROC in order.
 
