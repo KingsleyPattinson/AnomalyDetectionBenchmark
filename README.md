@@ -1,7 +1,7 @@
 <a name="t3FFN"></a>
 ## Benchmarking Multivariate Time Series Anomaly Detection with Large-Scale Real-World Datasets
 
-In this paper, we advance the benchmarking of time series anomaly detection from datasets, evaluation metrics, and algorithm comparison. <br />To the best of our knowledge, we have generated the largest real-world dataset for multivariate time series anomaly detection (MTSAD) from the AIOps system of a Real-Time Data Warehouse (RTDW) from a top cloud computing company. <br />We review and compare popular evaluation metrics including recently proposed.<br />To evaluate classic machine learning and recent deep learning methods fairly, we have performed extensive comparisons of these methods on various datasets. <br />We believe our benchmarking and datasets can promote reproducible results and accelerate the progress of MTSAD research.
+In this paper, we advance the benchmarking of time series anomaly detection from datasets, evaluation metrics, and algorithm comparison. <br />To the best of our knowledge, we have generated the largest real-world dataset for multivariate time series anomaly detection (MTSAD) from the AIOps system for a Real-Time Data Warehouse (RTDW) in a leading cloud computing company. <br />We review and compare popular evaluation metrics including recently proposed.<br />To evaluate classic machine learning and recent deep learning methods fairly, we have performed extensive comparisons of these methods on various datasets. <br />We believe our benchmarking and datasets can promote reproducible results and accelerate the progress of MTSAD research.
 
 
 <a name="JwX86"></a>
