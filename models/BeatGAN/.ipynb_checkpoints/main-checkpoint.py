@@ -1,10 +1,10 @@
 import os
 
-#base_path = "../datasets/holo/"
+#base_path = "../datasets/rtdw/"
 #data_types = [base_path + 'filllinear', base_path + 'fillmean', base_path + 'fillzero']
 parser.add_argument('--dataset', metavar='-d', type=str, required=False, default='MSL', help='dataset name')
 parser.add_argument('--instance', metavar='-i', type=str, required=False, default='15', help='instance number')
-parser.add_argument('--holo_datafolder', type=str, default='../../datasets/holo/fillzero_std',help='holo_datafolder')
+parser.add_argument('--holo_datafolder', type=str, default='../../datasets/rtdw/fillzero_std',help='holo_datafolder')
 parser.add_argument('--public_datafolder', type=str, default='../../datasets/public/',help='public_datafolder')
 parser.add_argument('--holo_result_save_path', type=str, default='../../result/holo_result.csv',help='holo_result_save_path')
 parser.add_argument('--public_result_save_path', type=str, default='../../result/public_result.csv',help='public_result_save_path')
@@ -17,7 +17,7 @@ holo_datasets = "instance"+config.instance
 holo_result_file = config.holo_result_save_path
 pub_result_file = config.public_result_save_path
 
-if config.dataset != 'holo':
+if config.dataset != 'rtdw':
     is_pub = True
     save_path = pub_result_file
     datafolder = public_datafolder

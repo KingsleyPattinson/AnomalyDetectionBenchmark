@@ -132,7 +132,7 @@ Following steps will show the process to run the experiments.
 - Datasets Downloading
    - Download our datasets from  [https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563/](https://figshare.com/articles/dataset/_b_BigDataAD_Benchmark_Dataset_b_/24040563/) , unzip the file and put it in:
 ```Bash
-AnomalyDetectionBenchmark/datasets/holo
+AnomalyDetectionBenchmark/datasets/rtdw
 ```
 
    - Download public datasets from [https://drive.google.com/file/d/1MqJ-Qf20wm8MaweyyzGc3SB3JujTIiEd/view?usp=sharing](https://drive.google.com/file/d/1MqJ-Qf20wm8MaweyyzGc3SB3JujTIiEd/view?usp=sharing)

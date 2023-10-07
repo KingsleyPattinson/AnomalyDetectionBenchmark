@@ -62,7 +62,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--dataset', metavar='-d', type=str, required=False, default='MSL', help='dataset name')
 parser.add_argument('--instance', metavar='-i', type=str, required=False, default='15', help='instance number')
-parser.add_argument('--holo_datafolder', type=str, default='../../datasets/holo/fillzero_std',help='holo_datafolder')
+parser.add_argument('--rtdw_datafolder', type=str, default='../../datasets/rtdw/fillzero_std',help='holo_datafolder')
 parser.add_argument('--public_datafolder', type=str, default='../../datasets/public/',help='public_datafolder')
 parser.add_argument('--holo_result_save_path', type=str, default='../../result/holo_result.csv',help='holo_result_save_path')
 parser.add_argument('--public_result_save_path', type=str, default='../../result/public_result.csv',help='public_result_save_path')
@@ -84,13 +84,13 @@ param_grid = {
     'window_size': [12, 24, 48]
 }
 
-#base_path ='../datasets/holo/'
+#base_path ='../datasets/rtdw/'
 
 #data_paths = [base_path + 'filllinear_std', base_path + 'fillmean_std', base_path + 'fillzero_std']
 
 #data_paths = [os.path.join(public_datafolder, public_datasets), os.path.join(holo_datafolder, holo_datasets)]
 
-if config.dataset != 'holo':
+if config.dataset != 'rtdw':
     is_pub = True
     save_path = pub_result_file
     path = os.path.join(public_datafolder, public_datasets)
@@ -185,7 +185,7 @@ for params in _generate_param_combinations(param_grid):
             scores["dataset"] = public_datasets
         print(scores)
         if os.path.exists(save_path):
-            return
+            break
         if is_pub:
             head = "dataset"
         else:

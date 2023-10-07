@@ -128,7 +128,7 @@ with torch.no_grad():
     
     loss = np.array(loss)
     scores = combine_all_evaluation_scores(labels, pred, loss, opt.dataname)
-    if savepath.contain('holo'):
+    if savepath.contain('rtdw'):
         scores["instance"] = opt.dataroot.split('/')[-1]
         is_pub = False
     else:

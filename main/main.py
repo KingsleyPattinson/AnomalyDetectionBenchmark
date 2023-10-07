@@ -24,11 +24,11 @@ parser.add_argument('--batch_size', type=int, default=128, help='batch_size')
 parser.add_argument('--input_c', type=int, default=55, help='input feature number')
 parser.add_argument('--output_c', type=int, default=55, help='output feature number') 
 parser.add_argument('--anormly_ratio', type=float, default=1.0, help='default anomaly ratio')
-parser.add_argument('--data_path', type=str, default='../datasets/holo/fillzero_std/instance15', help='input data_path')
+parser.add_argument('--data_path', type=str, default='../datasets/rtdw/fillzero_std/instance15', help='input data_path')
 parser.add_argument('--result_save_path', type=str, default='../result/result.csv', help='result save path')
 
 # other models' parameters
-parser.add_argument('--holo_datafolder', type=str, default='../../datasets/holo/fillzero_std',help='holo_datafolder')
+parser.add_argument('--holo_datafolder', type=str, default='../../datasets/rtdw/fillzero_std',help='holo_datafolder')
 parser.add_argument('--public_datafolder', type=str, default='../../datasets/public/',help='public_datafolder')
 parser.add_argument('--holo_result_save_path', type=str, default='../../result/holo_result.csv',help='holo_result_save_path')
 parser.add_argument('--public_result_save_path', type=str, default='../../result/public_result.csv',help='public_result_save_path')
