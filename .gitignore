@@ -1,0 +1,9 @@
+*.pyc
+__pycache__
+.ipynb_checkpoints
+.vscode
+.idea
+restore_me
+*.tar
+.DS_Store
+*.res
