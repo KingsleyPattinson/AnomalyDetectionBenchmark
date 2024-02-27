@@ -10,7 +10,7 @@ import numpy as np
 from  torch.utils.data import DataLoader,TensorDataset
 from data import load_data, load_data2
 from spot import SPOT
-from metrics.combine_all_scores import combine_all_evaluation_scores
+from aiops.AnomalyDetectionBenchmark.main.evaluation.combine_all_scores import combine_all_evaluation_scores
 # from dcgan import DCGAN as myModel
 
 
@@ -128,7 +128,7 @@ with torch.no_grad():
     
     loss = np.array(loss)
     scores = combine_all_evaluation_scores(labels, pred, loss, opt.dataname)
-    if savepath.contain('rtdw'):
+    if savepath.contain('holo'):
         scores["instance"] = opt.dataroot.split('/')[-1]
         is_pub = False
     else:

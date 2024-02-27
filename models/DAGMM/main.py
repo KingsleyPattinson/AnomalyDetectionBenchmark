@@ -7,7 +7,7 @@ import argparse
 import itertools
 
 
-from metrics.combine_all_scores import combine_all_evaluation_scores
+from aiops.AnomalyDetectionBenchmark.main.evaluation.combine_all_scores import combine_all_evaluation_scores
 
 from dagmm import DAGMM
 
@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--dataset', metavar='-d', type=str, required=False, default='MSL', help='dataset name')
 parser.add_argument('--instance', metavar='-i', type=str, required=False, default='15', help='instance number')
-parser.add_argument('--rtdw_datafolder', type=str, default='../../datasets/rtdw/fillzero_std',help='holo_datafolder')
+parser.add_argument('--holo_datafolder', type=str, default='../../datasets/holo/fillzero_std',help='holo_datafolder')
 parser.add_argument('--public_datafolder', type=str, default='../../datasets/public/',help='public_datafolder')
 parser.add_argument('--holo_result_save_path', type=str, default='../../result/holo_result.csv',help='holo_result_save_path')
 parser.add_argument('--public_result_save_path', type=str, default='../../result/public_result.csv',help='public_result_save_path')
@@ -33,7 +33,7 @@ pub_result_file = config.public_result_save_path
 # datasets folder
 # public_datafolder = '../../datasets/public/'
 # public_datasets = ['SMAP', 'MSL', 'SMD', 'NIPS_TS_CCard', 'NIPS_TS_Swan', 'NIPS_TS_Water', 'NIPS_TS_Syn_Mulvar', 'PSM']
-# holo_datafolder = '../../datasets/rtdw/fillzero_std'
+# holo_datafolder = '../../datasets/holo/fillzero_std'
 # holo_datasets = os.listdir(holo_datafolder)
 # holo_result_file = 'dagmm_holo_result.csv'
 # pub_result_file = 'dagmm_pub_result.csv'
